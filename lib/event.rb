@@ -1,9 +1,10 @@
 class Event
-  attr_reader :name, :food_trucks
+  attr_reader :name, :food_trucks, :date_to_format
 
   def initialize(name)
     @name = name
     @food_trucks = []
+    @date_to_format = Date.today
   end
 
   def add_food_truck(truck)
@@ -56,10 +57,13 @@ class Event
     end
 
     all_stocked_items.uniq!
-    
+
     all_stocked_items.map do |item|
       item.name
     end.sort!
   end
 
+  def date
+    date_to_format.strftime("%d/%m/%Y")
+  end
 end
