@@ -37,12 +37,18 @@ class Event
     total_inventory
   end
 
+  def overstocked_items
+    overstocked_items = []
+    total_inventory.each do |item, inventory|
+      if inventory[:quantity] > 50 && inventory[:food_trucks].length > 1
+        overstocked_items << item
+      end
+    end
+    overstocked_items.uniq
+  end
   #ITERATION 3:
   ##sorted_item_list that returns a list of names of all items the FoodTrucks
   # have in stock, sorted alphabetically. This list should not include any
   # duplicate items.
-
-  ##overstocked_items. An item is overstocked if it is sold by more than 1 food
-  # truck AND the total quantity is greater than 50.
 
 end
