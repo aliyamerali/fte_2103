@@ -37,7 +37,6 @@ RSpec.describe FoodTruck do
 
   describe '#potential_revenue'do
     food_truck1 = FoodTruck.new("Rocky Mountain Pies")
-    food_truck1 = FoodTruck.new("Rocky Mountain Pies")
     item1 = Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})
     item2 = Item.new({name: 'Apple Pie (Slice)', price: '$2.50'})
     item3 = Item.new({name: "Peach-Raspberry Nice Cream", price: "$5.30"})
