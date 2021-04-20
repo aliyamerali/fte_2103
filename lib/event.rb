@@ -6,6 +6,9 @@ class Event
     @food_trucks = []
   end
 
+  def add_food_truck(truck)
+    @food_trucks << truck
+  end
 
 end
 # #food_truck_names that returns an array of all the FoodTruck's names.
