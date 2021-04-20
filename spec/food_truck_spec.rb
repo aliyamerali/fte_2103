@@ -15,4 +15,23 @@ RSpec.describe FoodTruck do
     end
   end
 
+  describe 'inventory management' do
+    item1 = Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})
+    item2 = Item.new({name: 'Apple Pie (Slice)', price: '$2.50'})
+    food_truck = FoodTruck.new("Rocky Mountain Pies")
+
+    it '#stock adds an item in the given amount to the food truck inventory' do
+      food_truck.stock(item1, 30)
+
+      expect(food_truck.check_stock(item1)).to eq(30)
+      expect(food_truck.inventory).to eq({item1 => 30})
+    end
+
+    it '#check_stock returns the amount of items available - 0 by default' do
+      food_truck.stock(item1, 25)
+
+      expect(food_truck.check_stock(item2)).to eq(0)
+      expect(food_truck.check_stock(item1)).to eq(55)
+    end
+  end
 end
