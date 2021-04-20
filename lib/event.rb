@@ -16,7 +16,10 @@ class Event
     end
   end
 
+  def food_trucks_that_sell(item) #SHOULD THIS BE TAKING A STRING?
+    @food_trucks.find_all do |food_truck|
+      food_truck.check_stock(item) != 0
+    end
+  end
+
 end
-# #food_truck_names that returns an array of all the FoodTruck's names.
-# #food_trucks_that_sell that takes an argument of an item represented as a String.
-#   It will return a list of FoodTrucks that have that item in stock.
