@@ -16,7 +16,7 @@ class Event
     end
   end
 
-  def food_trucks_that_sell(item) #SHOULD THIS BE TAKING A STRING?
+  def food_trucks_that_sell(item)
     @food_trucks.find_all do |food_truck|
       food_truck.check_stock(item) != 0
     end
