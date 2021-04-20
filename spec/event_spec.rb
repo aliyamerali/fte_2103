@@ -66,6 +66,9 @@ RSpec.describe Event do
       expect(event.total_inventory.keys[0].class).to eq(Item)
       expect(event.total_inventory).to eq(expected)
     end
-  end
 
+    it '#overstocked_items returns items sold by 2+ trucks and 50+ inventory' do
+      expect(event.overstocked_items).to eq(item1)
+    end
+  end
 end
