@@ -37,8 +37,15 @@ RSpec.describe Event do
       event.add_food_truck(food_truck1)
       event.add_food_truck(food_truck2)
       event.add_food_truck(food_truck3)
+      expected = [food_truck1, food_truck2, food_truck3]
 
-      expect(event.food_trucks).to eq([food_truck1, food_truck2, food_truck3])
+      expect(event.food_trucks).to eq(expected)
+    end
+
+    it '#food_truck_names returns the names of the food trucks' do
+      expected = [food_truck1.name, food_truck2.name, food_truck3.name]
+
+      expect(event.food_truck_names).to eq(expected)
     end
   end
 
