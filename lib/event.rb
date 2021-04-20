@@ -46,9 +46,20 @@ class Event
     end
     overstocked_items.uniq
   end
-  #ITERATION 3:
-  ##sorted_item_list that returns a list of names of all items the FoodTrucks
-  # have in stock, sorted alphabetically. This list should not include any
-  # duplicate items.
+
+  def sorted_item_list
+    all_stocked_items = @food_trucks.reduce([]) do |all_stocked_items, food_truck|
+      food_truck.inventory.each do |item, count|
+          all_stocked_items << item if count != 0
+      end
+      all_stocked_items
+    end
+
+    all_stocked_items.uniq!
+    
+    all_stocked_items.map do |item|
+      item.name
+    end.sort!
+  end
 
 end
